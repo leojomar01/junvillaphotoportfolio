@@ -20,6 +20,8 @@ html{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Calibri;
+    color: rgb(218, 218, 218);
 }
 
 :root{
@@ -32,6 +34,7 @@ html{
     height: 100%;
     background:var(--background);
     transition: .5s;
+    overflow-y:hidden ;
     &::after{
         content: "";
         width: 100%;

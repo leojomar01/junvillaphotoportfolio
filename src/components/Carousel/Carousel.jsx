@@ -52,7 +52,7 @@ function Carousel({index,viewToggle,navShow,getIndex}) {
         }
     },[index,navShow,getIndex])
 
-    const slides = [1,2,3,4,5,6,7];
+    const slides = [7,1,2,3,4,5,6];
 
   return (
     <div className='carousel'>
@@ -60,17 +60,26 @@ function Carousel({index,viewToggle,navShow,getIndex}) {
                 {slides.map((e,i)=>(
                     <div className="slide">
                         <img src={"https://picsum.photos/200/300"+i} alt={i} />
-                        <div className="title">TITLE TEST{i}</div>
+                        <div className="titleContainer"><div className="title">TITLE TEST{i}</div></div>
+
+
+                        {navShow&&<div className="numberIndicator"
+                            key='numberIndicator'
+                            exit={{opacity:0,x:-50}}
+                            animate={{opacity:1,x:0}}
+                            initial={{opacity:0,x:-50}}
+                            transition={{duration:.5}}>
+                                <span>{'0' + i}</span>
+                            </div>}
                     </div>
                 ))}
             </div>
+        
 
+           
+            
             <div className='navigation'>
                 <AnimatePresence>
-                    
-
-                  
-
                     {navShow&&<motion.div 
                         className="btn prev-btn" 
                         key='prev-btn'
@@ -80,6 +89,12 @@ function Carousel({index,viewToggle,navShow,getIndex}) {
                         transition={{duration:.5}}
                     >Prev
                     </motion.div>}
+
+                    
+
+
+
+                    
 
                     {navShow&&<div className="view-btn" >
                             <span onClick={viewToggle}>View</span>
@@ -106,10 +121,8 @@ function Carousel({index,viewToggle,navShow,getIndex}) {
                         onClick={viewToggle}
                     >Back
                     </motion.div>}
-
                 </AnimatePresence>
             </div>
-
     </div>
   )
 }

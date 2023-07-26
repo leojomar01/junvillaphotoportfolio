@@ -1,6 +1,5 @@
 .album{
     position: absolute;
-    border: 1px solid red;
     width: 100%;
     min-height: 100vh;
     display: grid;
@@ -12,11 +11,21 @@
     .pic{
         cursor: pointer;
         img{
-            width: 300px;
-            height: 430px;
+            width: 270px;
+            height: 370px;
         }
     }
     .pic:nth-child(2){
         opacity: 0;
+    }
+
+    @for $x from 1 through 9{
+        $scale: random(3)+8;
+        .pic:nth-child(#{$x}){
+            margin-left: random(3)+1rem;
+            margin-top: random(3)+1rem;
+            margin-right: random(3)+1rem;
+            transform: scale( $scale / 10);
+        }
     }
 }

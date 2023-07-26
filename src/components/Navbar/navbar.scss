@@ -1,0 +1,50 @@
+.navbar{
+    height: 13vh;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    z-index: 9999;
+    align-items: center;
+    // background: url('https://img.freepik.com/premium-photo/sand-texture-background-brown-desert-pattern-tropical-beach-close-up_64749-4166.jpg') var(--background);
+
+    .logo{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 5%;
+        img{
+            width: 70px;
+            height: 70px;
+            fill: wheat;
+        }
+    }
+    
+    .name{
+        font-size: 4rem;
+        letter-spacing: 1rem;
+        transform: translate(-50%,0);
+        position: absolute;
+        left: 50%;
+    }
+    .links{
+        position: absolute;
+        right: 5%;
+        ul{
+            list-style: none;
+            li{
+                margin-left: 2.5rem;
+                font-size: 2rem;
+                display: inline-block;
+                a{
+                    svg{
+                        fill: white;
+                        &:hover{
+                            fill: rgb(218, 218, 218);
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

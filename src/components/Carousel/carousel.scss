@@ -1,7 +1,6 @@
 .carousel{
     width: 100%;
     height: 100%;
-    // border: 1px solid rgba(11, 138, 177, 0.8);
     z-index: 2;
     position: absolute;
     top: 0;
@@ -13,24 +12,79 @@
             transform: translate(-50%,-50%);
             left: 50%;
             top: 50%;
+            overflow: hidden;
+
+            .numberIndicator{
+                position: absolute;
+                left: 8%;
+                top:50%;
+                opacity: 0;
+                transition: .5s;
+                height: 1.5rem;
+                width: 50px;
+                overflow: hidden;
+                display: flex;
+                span{
+                    position: absolute;
+                    transition: .5s;
+                    font-size: 1rem;
+                }
+
+                
+            }
+            &:nth-child(1) .numberIndicator{
+                opacity: 1;
+                span{
+                    top: -150%;
+                }
+            }
+            &:nth-child(2) .numberIndicator{
+                opacity: 1;
+                span{
+                    top: 0%;
+                }
+            }
+            &:nth-child(3) .numberIndicator{
+                opacity: 1;
+                span{
+                    top: 150%;
+                }
+            }
+
             img{
                 position: absolute;
                 transform: translate(-50%,-50%);
-                width: 300px;
-                height: 430px;
+                width: 270px;
+                height: 370px;
                 top: 55%;
                 left: 50%;
                 transition: .8s;
                 background-color: aliceblue;
             }
-            .title{
+            .titleContainer{
                 position: absolute;
                 transform: translate(-50%,-50%);
                 top: 95%;
-                font-size: 4.5rem;
-                transition: .8s;
-                opacity: 0;
-                z-index: -1;
+                left: 50%;
+                width: 100%;
+                transition: .6s;
+                height: 10rem;
+                overflow: hidden;
+                z-index: -12;
+
+
+                .title{
+                    position: absolute;
+                    transform: translate(-50%,-50%);
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    font-size: 10rem;
+                    opacity: 0;
+                    text-align: center;
+                    transition: .5s;
+
+                }
             }
 
             $y:17;
@@ -42,7 +96,7 @@
             }
             &:nth-child(1) img{
                 transform: translate(-50%,-50%) rotate(6deg);
-                left: 80%;
+                left: 100%;
                 opacity: 0;
             }
             &:nth-child(2) img{
@@ -65,23 +119,20 @@
                 opacity: 0;
             }
 
-            &:nth-child(1) .title{
-                opacity: 0;
-                left: 40%;
-                visibility: hidden;
+            &:nth-child(1) .titleContainer .title{
+                top: -50%;
 
             }
-            &:nth-child(2) .title{
+            &:nth-child(2) .titleContainer .title{
                 opacity: 1;
-                left: 50%;
             }
-            &:nth-child(3) .title{
-                opacity: 0;
-                left: 60%;
-                visibility: hidden;
+            &:nth-child(3) .titleContainer .title{
+                top: 150%;
             }
         }
     }
+
+    
     .navigation{
         left: 0%;
         top: 0%;
@@ -89,18 +140,37 @@
         justify-content: center;
         align-items: center;
 
+       
         .btn{
             cursor: pointer;
             position: absolute;
             top:50%;
             z-index: 100;
-
+            font-size: 1.5rem;
+            font-weight: 600;
         }
         .next-btn{
             right: 30%;
+
+            &::before{
+                content: "";
+                position: absolute;
+                right: 120%;
+                top: 50%;
+                width: 25px;
+                border: 2.5px solid ;
+            }
         }
         .prev-btn{
             left: 30%;
+            &::before{
+                content: "";
+                position: absolute;
+                left: 120%;
+                top: 50%;
+                width: 25px;
+                border: 2.5px solid ;
+            }
         }
         .back-btn{
             left: 5%;
@@ -117,7 +187,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
+                
                 &:hover span{
                     opacity: 1;
                 }
@@ -126,13 +196,25 @@
                     border-radius: 50%;
                     width: 50px;
                     height: 50px;
-                    border: 1px solid red;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     opacity: 0;
                     transition: .5s;
                     cursor: pointer;
+                    color: rgb(83, 83, 83);
+                    background-color: aliceblue;
+
+                    &::after{
+                        content: "";
+                        width: 60px;
+                        height: 60px;
+                        position: absolute;
+                        border: 3px solid aliceblue;
+                        border-radius: 50%;
+
+                    }
+                    
                 }
         }
         
@@ -146,10 +228,8 @@
                 top: 70%;
                 transform: translate(-50%,-50%);
             }
-            .title{
-                top: 30%;
-                z-index: 1;
-
+            .titleContainer{
+                top: 35%;
             }
         }
     }
